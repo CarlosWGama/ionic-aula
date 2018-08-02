@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
+import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = LoginPage;
+  @ViewChild("conteudo_principal")
+  nav: NavController;
+
+  paginas: {descricao: String, page: any, icon: String}[] = [
+    {descricao: 'Tarefas', page: HomePage, icon: "done-all"},
+    {descricao: 'Configuração', page: ConfiguracaoPage, icon: "settings" }
+  ]
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -17,6 +26,17 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+  }
+
+  /** Abre uma página do menu */
+  abrirPagina(pagina) {
+    this.nav.setRoot(pagina);
+  }
+
+  /** Desloga do sistema */
+  sair() {
+    console.log("Clicou");
+    this.nav.setRoot(LoginPage);
   }
 }
 

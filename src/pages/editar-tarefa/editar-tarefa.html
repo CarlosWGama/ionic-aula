@@ -1,0 +1,12 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar Tarefa {{tarefa.descricao}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <formulario-tarefa [tarefa]="tarefa" [botao]="'Editar'" (tarefaEvent)="salvar($event)"></formulario-tarefa>
+</ion-content>

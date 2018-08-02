@@ -1,0 +1,16 @@
+  <ion-list>
+    <!-- TAREFA -->
+    <ion-item>
+      <ion-label fixed >Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="tarefa.descricao" ></ion-input>
+    </ion-item>
+
+    <!-- DATA -->
+    <ion-item>
+      <ion-label fixed >Data</ion-label>
+      <ion-input type="date" [(ngModel)]="tarefa.data" ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block (click)="salvar()" >{{botao}}</button>
+

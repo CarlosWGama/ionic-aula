@@ -1,0 +1,30 @@
+page-login {
+
+    ion-content {
+        background-image: url("../../assets/imgs/android_background.png");
+        background-size: 100%;
+    }
+
+    ion-item {
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+    }
+
+    ion-label {
+        color: white !important;
+    }
+
+    #cadastrar {
+        color: white;
+        text-align: center;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+
+    #titulo {
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        margin-top: 30%;
+    }
+}

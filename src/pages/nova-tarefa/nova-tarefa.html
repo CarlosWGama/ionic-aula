@@ -1,0 +1,13 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nova Tarefa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <formulario-tarefa [tarefa]="tarefa" [botao]="'Cadastro'" (tarefaEvent)="salvar($event)"></formulario-tarefa>
+</ion-content>
