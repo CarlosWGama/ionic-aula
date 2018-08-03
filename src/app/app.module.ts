@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { TranslateModule, TranslateLoader, TranslatePipe } from '@ngx-translate/core';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -11,6 +12,8 @@ import { ConfiguracaoPageModule } from '../pages/configuracao/configuracao.modul
 import { NovaTarefaPageModule } from '../pages/nova-tarefa/nova-tarefa.module';
 import { EditarTarefaPageModule } from '../pages/editar-tarefa/editar-tarefa.module';
 import { PipesModule } from '../pipes/pipes.module';
+import { HttpClientModule, HttpClient } from '../../node_modules/@angular/common/http';
+import { createTranslateLoader } from './translate';
 
 @NgModule({
   declarations: [
@@ -20,11 +23,19 @@ import { PipesModule } from '../pipes/pipes.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     ConfiguracaoPageModule,
     NovaTarefaPageModule,
     EditarTarefaPageModule,
-    PipesModule
+    PipesModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

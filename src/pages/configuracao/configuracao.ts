@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ConfiguracaoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ConfiguracaoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  idioma: string = "en";
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private translate: TranslateService) {
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConfiguracaoPage');
+  }
+
+  salvar() {
+    this.translate.use(this.idioma);
   }
 
 }
